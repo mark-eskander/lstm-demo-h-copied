@@ -38,7 +38,7 @@ app = FastAPI( debug = True)
 @app.get('/predict/{rev}' , status_code=200)
 def predict(rev : str):
     rev= rev.replace('-',' ')
-    model = tensorflow.keras.models.load_model(r'E:\collage\graduation project\utils_model_tokenizer_dictionary\back after test on github\model_testext_may.h5')
+    model = tensorflow.keras.models.load_model(r'model_testext_may.h5')
     result= 1 if model.predict(cleaned_tokenized(rev)) > .5 else 0
     # (model.predict(cleaned_tokenized(rev)) > .5).astype(int)
     
